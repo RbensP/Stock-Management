@@ -1,0 +1,41 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<DialogPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.rb.odmg.Controller.ProformaListController"
+            fx:id="proformaListDialog" stylesheets="@styles/styles.css">
+    <content>
+        <VBox spacing="25">
+            <Text text="Liste de Proforma"/>
+
+            <TableView fx:id="ordersTable"  prefHeight="400.0" minWidth="300.0" BorderPane.alignment="CENTER"
+                       onMouseClicked="#handleClick">
+                <columns>
+                    <TableColumn prefWidth="180.0" text="ID Proforma" fx:id="">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="id" />
+                        </cellValueFactory>
+                    </TableColumn>
+
+                    <TableColumn prefWidth="180.0" text="Client">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="clientName"/>
+                        </cellValueFactory>
+                    </TableColumn>
+
+                    <TableColumn prefWidth="120" text="Date">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="dateCreated"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+                <BorderPane.margin>
+                    <Insets right="10.0" top="10.0"/>
+                </BorderPane.margin>
+            </TableView>
+        </VBox>
+    </content>
+</DialogPane>

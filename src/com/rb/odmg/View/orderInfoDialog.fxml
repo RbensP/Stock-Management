@@ -1,0 +1,66 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<DialogPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.rb.odmg.Controller.OrderInfoController"
+            fx:id="orderInfoDialog" stylesheets="@styles/styles.css">
+    <content>
+        <VBox spacing="25">
+            <VBox spacing="15">
+                <Text text="Entreprise Edgard Etienne"/>
+                <Text text="Bon de Commande"/>
+            </VBox>
+            <GridPane vgap="5" hgap="10">
+                <Label text="Date de la Commande:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <Text fx:id="date" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Client:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <Text fx:id="client_name" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Ville du Client:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <Text fx:id="client_city" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Adresse du Client:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <Text fx:id="client_address" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                <Label text="Téléphone du Client:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <Text fx:id="client_phone" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+            </GridPane>
+
+            <VBox spacing="20">
+                <Text text="Article(s) commandé(s) :"/>
+                <TableView fx:id="orderedArticlesTable" prefHeight="150.0">
+                    <columns>
+                        <TableColumn text="Article" prefWidth="110.0">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="libelle"/>
+                            </cellValueFactory>
+                        </TableColumn>
+
+                        <TableColumn text="Quantité" prefWidth="85.0">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="quantity"/>
+                            </cellValueFactory>
+                        </TableColumn>
+
+                        <TableColumn text="PrixTotal" prefWidth="85.0">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="total"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+
+                <GridPane vgap="10" hgap="10">
+                    <Label text="Total de la Commande:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <Text fx:id="total" text="0" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                </GridPane>
+            </VBox>
+            <HBox spacing="10">
+                <Button text="Retourner article" fx:id="btn" onMouseClicked="#handleReturn"/>
+                <Button text="Bon de livraison" fx:id="dlvBtn" onMouseClicked="#handleDeliveryInfoClick" style="-fx-background-color: #FA991C;"/>
+            </HBox>
+        </VBox>
+    </content>
+</DialogPane>

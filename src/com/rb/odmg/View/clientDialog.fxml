@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<DialogPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.rb.odmg.Controller.ClientDialogController" stylesheets="@styles/styles.css">
+    <content>
+        <VBox spacing="20">
+            <Text text="Selectionner ou creer un client">
+                <font>
+                    <Font name="Times New Roman bold" size="15"/>
+                </font>
+            </Text>
+
+            <Text text="Listes de clients enregistrés :"/>
+            <TableView fx:id="clients" prefHeight="150.0">
+                <columns>
+                    <TableColumn text="Name" prefWidth="120.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="name"/>
+                        </cellValueFactory>
+                    </TableColumn>
+
+                    <TableColumn text="Ville" prefWidth="120.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="city"/>
+                        </cellValueFactory>
+                    </TableColumn>
+
+                    <TableColumn text="Adresse" prefWidth="120.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="address"/>
+                        </cellValueFactory>
+                    </TableColumn>
+
+                    <TableColumn text="Telephone" prefWidth="120.0">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="phone"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+
+            <Button text="Noveau client" fx:id="toggleBtn" onMouseClicked="#handleToggleClick"/>
+            <GridPane vgap="10" hgap="10" fx:id="clientForm">
+                <Label text="Nom :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="nameField" promptText="Nom Client" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Ville :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="cityField" promptText="Ville" GridPane.rowIndex="1" GridPane.columnIndex="1"  />
+
+                <Label text="Addresse :" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="addressField" promptText="Numero, Nom Rue" GridPane.rowIndex="2" GridPane.columnIndex="1"  />
+
+                <Label text="Telephone :" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <TextField fx:id="phoneField" promptText="Telephone" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            </GridPane>
+
+            <HBox spacing="20" alignment="BOTTOM_LEFT">
+                <Button text="Enregistrer" onMouseClicked="#handleRegisterClick" prefWidth="150"/>
+            </HBox>
+        </VBox>
+    </content>
+</DialogPane>

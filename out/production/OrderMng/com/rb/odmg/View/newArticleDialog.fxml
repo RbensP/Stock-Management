@@ -1,0 +1,33 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane fx:controller="com.rb.odmg.Controller.ArticleDialogController" xmlns:fx="http://javafx.com/fxml"
+            prefHeight="200.0" prefWidth="600.0" stylesheets="@styles/styles.css">
+    <headerText>
+        Entrer les champs du nouvel article
+    </headerText>
+
+    <content>
+        <VBox spacing="40">
+            <GridPane vgap="10" hgap="10">
+                <Label text="Libelle de l'Article:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="libelleField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Famille de l'Article :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="commodityField" GridPane.rowIndex="1" GridPane.columnIndex="1">
+
+                </ComboBox>
+
+                <Label text="Prix de l'article(HTG):" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="priceField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Quantite initiale du Stock:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <TextField fx:id="initQtyField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            </GridPane>
+
+            <HBox spacing="20" alignment="BOTTOM_LEFT">
+                <Button text="Enregistrer" onMouseClicked="#handleRegisterClick" fx:id="registerBtn"/>
+            </HBox>
+        </VBox>
+    </content>
+</DialogPane>

@@ -1,0 +1,205 @@
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="mainBorderPane" fx:controller="com.rb.odmg.Controller.Controller"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@View/styles/styles.css">
+    <top>
+        <ToolBar fx:id="toolbar">
+            <ImageView fitHeight="40" fitWidth="40">
+                <image>
+                    <Image url="@View/images/_logo.png" />
+                </image>
+            </ImageView>
+<!--            #FA991C-->
+<!--            #FBF3F2-->
+            <Text text="ENTREPRISE EDGARD ETIENNE" fill="#FA991C">
+                <font>
+                    <Font name="Times New Roman bold" size="16"/>
+                </font>
+            </Text>
+
+            <HBox spacing="10.0" BorderPane.alignment="CENTER" alignment="CENTER">
+                <Text text="Rechercher un article" fill="#FBF3F2"/>
+                <TextField promptText="Libelle" focusTraversable="false" fx:id="searchField"/>
+                <Button text="Chercher" fx:id="searhBtn" onMouseClicked="#handleSearchClick">
+                    <graphic>
+                        <ImageView>
+                            <image>
+                                <Image url="@View/images/Zoom16.gif"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <HBox alignment="CENTER">
+                    <Button text="Deconnexion" fx:id="logoutBtn" onMouseClicked="#handleLogOutClick" />
+                    <HBox.margin>
+                        <Insets left="30.0" />
+                    </HBox.margin>
+                </HBox>
+
+                <HBox.margin>
+                    <Insets left="100.0" />
+                </HBox.margin>
+            </HBox>
+        </ToolBar>
+    </top>
+
+<!--    style="-fx-border-color: #ccc; -fx-border-style: solid; -fx-border-width: 2"-->
+    <left>
+        <VBox prefHeight="200.0" prefWidth="150.00" spacing="20.0"
+              style="-fx-background-color: #1C768F;">
+            <Button text="Creer Stock" fx:id="createStock" onAction="#showNewStockDialog">
+<!--                <graphic>-->
+<!--                    <ImageView>-->
+<!--                        <image>-->
+<!--                            <Image url="@View/images/Add16.gif"/>-->
+<!--                        </image>-->
+<!--                    </ImageView>-->
+<!--                </graphic>-->
+            </Button>
+
+            <Button text="Creer Article" fx:id="createArticle" onAction="#showNewArticleDialog">
+<!--                <graphic>-->
+<!--                    <ImageView>-->
+<!--                        <image>-->
+<!--                            <Image url="@View/images/Add16.gif"/>-->
+<!--                        </image>-->
+<!--                    </ImageView>-->
+<!--                </graphic>-->
+            </Button>
+
+            <Button text="Creer Commande" fx:id="createOrder" onAction="#showNewOrderDialog">
+<!--                <graphic>-->
+<!--                    <ImageView>-->
+<!--                        <image>-->
+<!--                            <Image url="@View/images/Add16.gif"/>-->
+<!--                        </image>-->
+<!--                    </ImageView>-->
+<!--                </graphic>-->
+            </Button>
+
+            <Button text="Creer Famille" fx:id="createCommodity" onAction="#showNewCommodityDialog">
+<!--                <graphic>-->
+<!--                    <ImageView>-->
+<!--                        <image>-->
+<!--                            <Image url="@View/images/Add16.gif"/>-->
+<!--                        </image>-->
+<!--                    </ImageView>-->
+<!--                </graphic>-->
+            </Button>
+
+            <Button text="Familles d'Articles" fx:id="commoditiesBtn" onAction="#displayCommoditiesDialog">
+<!--                <graphic>-->
+<!--                    <ImageView>-->
+<!--                        <image>-->
+<!--                            <Image url="@View/images/Add16.gif"/>-->
+<!--                        </image>-->
+<!--                    </ImageView>-->
+<!--                </graphic>-->
+            </Button>
+
+            <Button text="Liste de Proforma" fx:id="profBtn" onAction="#handleProfomaListClick">
+<!--                 <graphic>-->
+<!--                      <ImageView>-->
+<!--                         <image>-->
+<!--                             <Image url="@View/images/Add16.gif"/>-->
+<!--                         </image>-->
+<!--                      </ImageView>-->
+<!--                 </graphic>-->
+            </Button>
+
+            <Button text="Ventes par Jour" fx:id="salesBtn" onAction="#handleDaySalesClick">
+<!--                <graphic>-->
+<!--                    <ImageView>-->
+<!--                        <image>-->
+<!--                            <Image url="@View/images/Add16.gif"/>-->
+<!--                        </image>-->
+<!--                    </ImageView>-->
+<!--                </graphic>-->
+            </Button>
+
+            <BorderPane.margin>
+                <Insets right="10.0" left="10.0" top="10.0"/>
+            </BorderPane.margin>
+        </VBox>
+    </left>
+
+    <center>
+        <HBox spacing="20.0" BorderPane.alignment="CENTER" alignment="CENTER">
+            <VBox spacing="10">
+                <TableView fx:id="ordersTable"  prefHeight="400.0" minWidth="300.0" BorderPane.alignment="CENTER"
+                           onMouseClicked="#handleClickOrder">
+                    <columns>
+                        <TableColumn prefWidth="180.0" text="ID Commande" fx:id="">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="id" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+                        <TableColumn prefWidth="180.0" text="Client">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="clientName"/>
+                            </cellValueFactory>
+                        </TableColumn>
+
+                        <TableColumn prefWidth="120" text="Date">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="dateCreated"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                    <BorderPane.margin>
+                        <Insets right="10.0" top="10.0"/>
+                    </BorderPane.margin>
+                </TableView>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Filtrer commandes par date"/>
+                    <DatePicker promptText="Selectionner date" fx:id="dateField" onAction="#handleDatePickerAction"/>
+                </HBox>
+                <Button text="Afficher tout" onMouseClicked="#handleDisplayAllOrdersClick"/>
+            </VBox>
+
+            <VBox spacing="10">
+                <TableView fx:id="articlesTable" prefHeight="400.0" prefWidth="200.0"
+                           BorderPane.alignment="CENTER" onMouseClicked="#handleClickArticle" editable="true">
+                    <columns>
+                        <TableColumn prefWidth="${articlesTable.width}" text="Article">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="libelle"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+                <Button text="Afficher tout" fx:id="displayArsBtn" onMouseClicked="#handleDisplayAllArticleClick"/>
+                <Label text="Filtrer articles par famille"/>
+                <ComboBox fx:id="commodities" onAction="#handleCommodityAction">
+
+                </ComboBox>
+            </VBox>
+
+            <BorderPane.margin>
+                <Insets right="10.0" top="10.0"/>
+            </BorderPane.margin>
+        </HBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <ProgressBar fx:id="progressBar" visible="false" prefWidth="200.0" progress="0.0">
+                    <HBox.margin>
+                        <Insets left="50.0" />
+                    </HBox.margin>
+                </ProgressBar>
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

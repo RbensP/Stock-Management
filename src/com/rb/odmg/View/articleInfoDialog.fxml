@@ -1,0 +1,31 @@
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Text?>
+
+<DialogPane fx:id="dialogPane" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.rb.odmg.Controller.ArticleInfoController"
+            prefHeight="150.0" prefWidth="450.0">
+    <headerText>
+        Informations relatives à article
+    </headerText>
+
+    <content>
+        <GridPane vgap="10" hgap="10">
+            <Label text="Libelle de l'Article :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <Text fx:id="libelle" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Famille :" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <Text fx:id="commodity" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Prix de l'article :" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <Text fx:id="price" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <Label text="Date Créé :" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <Text fx:id="date" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+            <Label text="En Stock :" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+            <Text fx:id="quantity" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+        </GridPane>
+    </content>
+</DialogPane>

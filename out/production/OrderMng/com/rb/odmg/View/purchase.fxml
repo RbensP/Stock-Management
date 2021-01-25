@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<DialogPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.rb.odmg.Controller.PurchaseController" stylesheets="@styles/styles.css">
+    <headerText>
+        Achat :
+    </headerText>
+    <content>
+        <VBox spacing="10">
+            <HBox spacing="10">
+                <Label text="Article ID"/>
+                <Text fx:id="articleId" text="id"/>
+            </HBox>
+            <Text fx:id="libelle" />
+            <Text fx:id="quantity" />
+            <Text fx:id="total" />
+            <Button text="Supprimer" fx:id="deleteBtn"/>
+        </VBox>
+    </content>
+</DialogPane>

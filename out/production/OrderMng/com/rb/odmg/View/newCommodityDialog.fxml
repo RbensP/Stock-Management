@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<DialogPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.rb.odmg.Controller.NewCommodityDialogController"
+            prefHeight="150.0" prefWidth="450.0" stylesheets="@styles/styles.css">
+    <content>
+        <VBox spacing="20">
+            <Text fx:id="title"/>
+            <GridPane vgap="10" hgap="10">
+                <Label text="Nom de la Famille:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="commodityField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <GridPane.margin>
+                    <Insets top="30"/>
+                </GridPane.margin>
+            </GridPane>
+            <HBox spacing="20" alignment="BOTTOM_LEFT">
+                <Button text="Enregistrer" onMouseClicked="#handleRegisterClick"/>
+            </HBox>
+        </VBox>
+    </content>
+</DialogPane>

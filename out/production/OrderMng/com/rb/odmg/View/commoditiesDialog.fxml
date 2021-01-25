@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<?import javafx.scene.text.Text?>
+<DialogPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.rb.odmg.Controller.CommoditiesDialogController"
+            fx:id="commoditiesDialog">
+    <content>
+        <VBox spacing="15">
+            <Text text="Liste de Familles d'Article" />
+            <TableView fx:id="commoditiesTable" prefHeight="200.0"
+                       BorderPane.alignment="CENTER" onMouseClicked="#handleCommodityClick">
+                <columns>
+                    <TableColumn prefWidth="120" text="ID">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="id"/>
+                        </cellValueFactory>
+                    </TableColumn>
+
+                    <TableColumn prefWidth="200.0" text="Famille">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="commodity"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+        </VBox>
+    </content>
+</DialogPane>

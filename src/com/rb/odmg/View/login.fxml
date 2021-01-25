@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.rb.odmg.Controller.Login" stylesheets="@styles/styles.css">
+
+    <left>
+        <VBox BorderPane.alignment="CENTER" alignment="CENTER" fx:id="left" prefWidth="350" spacing="30">
+            <ImageView fitHeight="150" fitWidth="150">
+                <image>
+                    <Image url="@images/_logo.png" />
+                </image>
+            </ImageView>
+
+            <VBox BorderPane.alignment="CENTER" alignment="TOP_CENTER" spacing="20">
+                <Text text="ENTREPRISE" fx:id="name1" fill="#FA991C">
+                    <font>
+                        <Font name="Times New Roman bold" size="30" />
+                    </font>
+                </Text>
+                <Text text="EDGARD ETIENNE" fx:id="name2" fill="#FA991C">
+                    <font>
+                        <Font name="Times New Roman bold" size="30"/>
+                    </font>
+                </Text>
+            </VBox>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="20" BorderPane.alignment="CENTER" alignment="CENTER" fx:id="right">
+            <Text text="CONNEXION">
+                <font>
+                    <Font name="Times New Roman bold" size="16"/>
+                </font>
+            </Text>
+            <GridPane hgap="10" BorderPane.alignment="CENTER" alignment="CENTER">
+                <Label text="Nom d'utilisateur" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="username" text="" GridPane.rowIndex="0" GridPane.columnIndex="1" promptText="USERNAME"
+                focusTraversable="true"/>
+            </GridPane>
+
+            <GridPane hgap="33"  BorderPane.alignment="CENTER" alignment="CENTER">
+                <Label text="Mot de Passe" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <PasswordField fx:id="password" text="" GridPane.rowIndex="1" GridPane.columnIndex="1" promptText="PASSWORD"
+                focusTraversable="true"/>
+            </GridPane>
+
+            <Button text="Connecter" GridPane.rowIndex="2" GridPane.columnIndex="0"
+                    onMouseClicked="#handleConnect" prefWidth="150"/>
+
+            <HBox alignment="CENTER" prefWidth="200.0" BorderPane.alignment="CENTER">
+                <children>
+                    <ProgressBar fx:id="progressBar" visible="false" prefWidth="200.0" progress="0.0">
+
+                    </ProgressBar>
+                </children>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

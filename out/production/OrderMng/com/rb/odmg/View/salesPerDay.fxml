@@ -1,0 +1,49 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<DialogPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.rb.odmg.Controller.SalesController"
+            fx:id="salesDialog" stylesheets="@styles/styles.css">
+    <content>
+        <VBox spacing="25">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Filtrer par date"/>
+                <DatePicker promptText="Selectionner date" fx:id="dateField" onAction="#handleDatePickerAction"/>
+            </HBox>
+
+            <Text text="" fx:id="day"/>
+
+            <TableView fx:id="salesTable"  prefHeight="350.0" minWidth="300.0" BorderPane.alignment="CENTER">
+                <columns>
+                    <TableColumn prefWidth="180.0" text="Article" fx:id="">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="libelle" />
+                        </cellValueFactory>
+                    </TableColumn>
+
+                    <TableColumn prefWidth="180.0" text="Quantité">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="quantity"/>
+                        </cellValueFactory>
+                    </TableColumn>
+
+                    <TableColumn prefWidth="120" text="Total">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="total"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+
+                <BorderPane.margin>
+                    <Insets right="10.0" top="10.0"/>
+                </BorderPane.margin>
+            </TableView>
+
+            <Text text="" fx:id="total"/>
+        </VBox>
+    </content>
+</DialogPane>

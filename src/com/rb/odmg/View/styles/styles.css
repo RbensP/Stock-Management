@@ -1,0 +1,10 @@
+#left {
+    -fx-background-color: #032539;
+}
+.button {
+    -fx-background-color: #1C768F;
+    -fx-text-fill: #FBF3F2;
+}
+#toolbar {
+    -fx-background-color: #032539;
+}

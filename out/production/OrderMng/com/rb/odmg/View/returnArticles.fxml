@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<DialogPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.rb.odmg.Controller.ReturnArticlesController" stylesheets="@styles/styles.css">
+    <content>
+        <VBox spacing="20">
+            <GridPane vgap="10" hgap="10">
+                <Text text="Article : " GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="purchasesComb" GridPane.rowIndex="0" GridPane.columnIndex="1">
+
+                </ComboBox>
+
+                <Text text="Quantité :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="quantity" GridPane.rowIndex="1" GridPane.columnIndex="1" promptText="Quantite"/>
+            </GridPane>
+
+            <Button text="Enregistrer" onMouseClicked="#handleRegisterClick" />
+        </VBox>
+    </content>
+</DialogPane>
